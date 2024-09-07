@@ -1,0 +1,1 @@
+Este projeto é uma calculadora simples em javascript utilizando o framework react, com o intuito de eu aprender a utilizar o Git e o Github
