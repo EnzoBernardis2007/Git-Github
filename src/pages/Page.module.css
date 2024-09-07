@@ -1,0 +1,22 @@
+.backgroundConfig {
+    background-color: whitesmoke;
+}
+
+main {
+    background-color: blue;
+    align-items: center;
+}
+
+.containerNums {
+    display: flex;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    width: 50px;
+    height: 50px;
+    border: none;
+}
