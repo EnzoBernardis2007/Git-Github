@@ -4,7 +4,8 @@ import { Screen } from '../Components/Screen'
 
 export function Page() {
     const [number, setNumber] = useState('0')
-    const [numbers, setNumbers] = useState([])
+    const [firstNumber, setFirstNumber] = useState(null)
+    const [secondNumber, setSecondNumber] = useState(null)
     //0 = plus, 1 = minus, 2 = multiplication, 3 = division
     const [operation, setOperation] = useState(null)
 
@@ -14,16 +15,21 @@ export function Page() {
     }
 
     const addNumber = () => {
-        if (number !== '0') {
-            setNumbers([...numbers, Number(number)])
-            setNumber('0')
-            console.log(numbers)
+        if(firstNumber === null) {
+            setFirstNumber(Number(number))
         }
+        else {
+            setSecondNumber(Number(number))
+        }
+        setNumber('0')
+        console.log(firstNumber)
+        console.log(secondNumber)
     }
     const clear = () => {
         //clear everything
         setNumber('0')
-        setNumbers([])
+        setFirstNumber(null)
+        setSecondNumber(null)
         setOperation(null)
     }
 
@@ -35,28 +41,25 @@ export function Page() {
     }
 
     const calc = () => {
-        if (numbers.length < 2 || operation === null) return console.log("no"), console.log(numbers);
-
-        const [num1, num2] = numbers;
         let result;
 
         switch(operation){
             case 0:
-                result = num1 + num2;
+                result = firstNumber + secondNumber;
                 break;
             case 1:
-                result = num1 - num2;
+                result = firstNumber - secondNumber;
                 break;
             case 2:
-                result = num1 * num2;
+                result = firstNumber * secondNumber;
                 break;
             case 3:
-                result = num1 / num2;
+                result = firstNumber / secondNumber;
                 break;
         }
         console.log(result)
+        clear()
         setNumber(result.toString()); 
-        setNumbers([]); 
         setOperation(null); 
     }
 
